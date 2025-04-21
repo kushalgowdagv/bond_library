@@ -1,5 +1,4 @@
 
-    
 """
 Output adapters for exporting analysis results
 """

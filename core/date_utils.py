@@ -13,14 +13,11 @@ class DateUtils:
     def parse_date(date_str: str) -> datetime:
         """Parse date string to datetime object"""
         try:
-            # Try MM/DD/YYYY format
             return datetime.strptime(date_str, "%m/%d/%Y")
         except ValueError:
             try:
-                # Try M/D/YYYY format
                 return datetime.strptime(date_str, "%-m/%-d/%Y")
             except ValueError:
-                # Fallback to basic parser
                 return pd.to_datetime(date_str).to_pydatetime()
     
     @staticmethod

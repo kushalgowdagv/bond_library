@@ -39,3 +39,4 @@ class CashFlow:
         # Note: We need to modify the InterestRateCurve class to use discrete compounding too
         discount_factor = curve.get_discount_factor(valuation_date, self.payment_date)
         return self.amount * discount_factor
+    

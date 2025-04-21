@@ -364,3 +364,4 @@ class CSVDataSource(DataSource):
         except Exception as e:
             self.logger.error(f"Failed to load historical rates from {file_path}: {e}")
             raise
+        
