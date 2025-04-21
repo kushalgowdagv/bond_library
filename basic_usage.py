@@ -181,7 +181,7 @@ def main():
             
             output_adapter.export_bond_analysis(flattened_stress, f"stress_test_{first_bond.contract_id}.csv")
             
-        logger.info("Basic usage example completed")
+        logger.info("Code completed")
         print("\nAll analysis results have been exported to the output directory:")
         print(f"  {output_dir}")
     except Exception as e:
