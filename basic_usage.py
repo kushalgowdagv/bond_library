@@ -134,52 +134,52 @@ def main():
         logger.info("Exporting portfolio analysis")
         output_adapter.export_portfolio_analysis(portfolio_results, "portfolio_analysis.csv")
         
-        # Run stress tests on the first bond
-        if bonds:
-            logger.info("Running stress tests on first bond")
-            first_bond = bonds[0]
+        # # Run stress tests on the first bond
+        # if bonds:
+        #     logger.info("Running stress tests on first bond")
+        #     first_bond = bonds[0]
             
-            # Create stress test scenarios
-            stress_tester = StressTest()
-            stress_tester.create_standard_scenarios()
+        #     # Create stress test scenarios
+        #     stress_tester = StressTest()
+        #     stress_tester.create_standard_scenarios()
             
-            # Run stress tests
-            stress_results = stress_tester.run_all_scenarios(first_bond, valuation_date, yield_curve)
+        #     # Run stress tests
+        #     stress_results = stress_tester.run_all_scenarios(first_bond, valuation_date, yield_curve)
             
-            # Print stress test results
-            print("\nStress Test Results:")
-            for scenario, result in stress_results.items():
-                price_change = result["percentage_change"]
-                print(f"{scenario}: {price_change:.2f}%")
+        #     # Print stress test results
+        #     print("\nStress Test Results:")
+        #     for scenario, result in stress_results.items():
+        #         price_change = result["percentage_change"]
+        #         print(f"{scenario}: {price_change:.2f}%")
             
-            # Export stress test results
-            stress_data = {
-                "bond_id": first_bond.contract_id,
-                "valuation_date": valuation_date.strftime('%Y-%m-%d'),
-                "scenarios": {}
-            }
+        #     # Export stress test results
+        #     stress_data = {
+        #         "bond_id": first_bond.contract_id,
+        #         "valuation_date": valuation_date.strftime('%Y-%m-%d'),
+        #         "scenarios": {}
+        #     }
             
-            for scenario, result in stress_results.items():
-                stress_data["scenarios"][scenario] = {
-                    "base_price": result["base_price"],
-                    "stressed_price": result["stressed_price"],
-                    "price_change": result["price_change"],
-                    "percentage_change": result["percentage_change"]
-                }
+        #     for scenario, result in stress_results.items():
+        #         stress_data["scenarios"][scenario] = {
+        #             "base_price": result["base_price"],
+        #             "stressed_price": result["stressed_price"],
+        #             "price_change": result["price_change"],
+        #             "percentage_change": result["percentage_change"]
+        #         }
             
-            # Export flattened stress test results
-            flattened_stress = {
-                "bond_id": first_bond.contract_id,
-                "valuation_date": valuation_date.strftime('%Y-%m-%d')
-            }
+        #     # Export flattened stress test results
+        #     flattened_stress = {
+        #         "bond_id": first_bond.contract_id,
+        #         "valuation_date": valuation_date.strftime('%Y-%m-%d')
+        #     }
             
-            for scenario, result in stress_results.items():
-                flattened_stress[f"{scenario}_base_price"] = result["base_price"]
-                flattened_stress[f"{scenario}_stressed_price"] = result["stressed_price"]
-                flattened_stress[f"{scenario}_price_change"] = result["price_change"]
-                flattened_stress[f"{scenario}_percentage_change"] = result["percentage_change"]
+        #     for scenario, result in stress_results.items():
+        #         flattened_stress[f"{scenario}_base_price"] = result["base_price"]
+        #         flattened_stress[f"{scenario}_stressed_price"] = result["stressed_price"]
+        #         flattened_stress[f"{scenario}_price_change"] = result["price_change"]
+        #         flattened_stress[f"{scenario}_percentage_change"] = result["percentage_change"]
             
-            output_adapter.export_bond_analysis(flattened_stress, f"stress_test_{first_bond.contract_id}.csv")
+        #     output_adapter.export_bond_analysis(flattened_stress, f"stress_test_{first_bond.contract_id}.csv")
             
         logger.info("Code completed")
         print("\nAll analysis results have been exported to the output directory:")
