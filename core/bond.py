@@ -40,6 +40,60 @@ class Bond(ABC):
         pv = sum(cf.present_value(valuation_date, curve) for cf in cash_flows)
         return pv / self.par_value * 100
     
+    # def yield_to_maturity(self, valuation_date: datetime, market_price: float) -> float:
+    #     """
+    #     Calculate yield to maturity given a market price
+        
+    #     Args:
+    #         valuation_date: Date for which to calculate YTM
+    #         market_price: Market price as percentage of par
+            
+    #     Returns:
+    #         Yield to maturity
+    #     """
+    #     # Convert market price to decimal
+    #     market_price_decimal = market_price / 100.0
+    #     target_price = market_price_decimal * self.par_value
+        
+    #     cash_flows = self.get_remaining_cash_flows(valuation_date)
+        
+    #     def price_function(ytm: float) -> float:
+    #         """Calculate bond price for a given yield"""
+    #         pv = 0.0
+    #         for cf in cash_flows:
+    #             time_to_cf = DateUtils.year_fraction(valuation_date, cf.payment_date)
+    #             discount_factor = math.exp(-ytm * time_to_cf)
+    #             pv += cf.amount * discount_factor
+    #         return pv - target_price
+        
+    #     # Initial guess for YTM (use coupon rate as starting point)
+    #     initial_guess = self.coupon_rate
+        
+    #     # Derivative function for Newton-Raphson
+    #     def price_derivative(ytm: float) -> float:
+    #         """Calculate derivative of price function with respect to yield"""
+    #         dpv = 0.0
+    #         for cf in cash_flows:
+    #             time_to_cf = DateUtils.year_fraction(valuation_date, cf.payment_date)
+    #             discount_factor = math.exp(-ytm * time_to_cf)
+    #             dpv -= cf.amount * time_to_cf * discount_factor
+    #         return dpv
+        
+    #     # Try Newton-Raphson method first
+    #     try:
+    #         ytm, _ = RootFinder.newton_raphson(price_function, price_derivative, initial_guess)
+    #         return ytm
+
+
+
+        # except ValueError:
+        #     # Fallback to bisection method
+        #     # Use reasonable bounds for yield (0% to 20%)
+        #     lower_bound = 0.0
+        #     upper_bound = 0.2
+        #     ytm, _ = RootFinder.bisection(price_function, lower_bound, upper_bound)
+        #     return ytm
+
     def yield_to_maturity(self, valuation_date: datetime, market_price: float) -> float:
         """
         Calculate yield to maturity given a market price
@@ -90,7 +144,9 @@ class Bond(ABC):
             upper_bound = 0.2
             ytm, _ = RootFinder.bisection(price_function, lower_bound, upper_bound)
             return ytm
-    
+
+
+
     def duration(self, valuation_date: datetime, yield_rate: float) -> float:
         """
         Calculate Macaulay duration

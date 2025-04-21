@@ -20,6 +20,22 @@ class CashFlow:
         self.payment_date = payment_date
         self.amount = amount
     
+    # def present_value(self, valuation_date: datetime, curve: InterestRateCurve) -> float:
+    #     """
+    #     Calculate present value of the cash flow
+        
+    #     Args:
+    #         valuation_date: Date for which to calculate present value
+    #         curve: Interest rate curve for discounting
+            
+    #     Returns:
+    #         Present value of the cash flow
+    #     """
+    #     if self.payment_date <= valuation_date:
+    #         return 0.0
+        
+    #     discount_factor = curve.get_discount_factor(valuation_date, self.payment_date)
+    #     return self.amount * discount_factor
     def present_value(self, valuation_date: datetime, curve: InterestRateCurve) -> float:
         """
         Calculate present value of the cash flow

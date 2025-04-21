@@ -5,7 +5,7 @@ Logging utilities
 import logging
 import sys
 from typing import Optional
-from config import Config
+from utils.config import Config  # Changed from 'from config import Config'
 
 class LogManager:
     """Logger setup and management"""
