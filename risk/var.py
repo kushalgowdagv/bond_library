@@ -6,8 +6,8 @@ import numpy as np
 from typing import List, Dict, Union, Tuple, Optional
 from datetime import datetime, timedelta
 
-from bond_library.core.bond import Bond
-from bond_library.utils.logging import LogManager
+from core.bond import Bond
+from utils.logging import LogManager
 
 class ValueAtRisk:
     """Class for calculating Value at Risk metrics"""

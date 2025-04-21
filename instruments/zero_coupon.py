@@ -5,9 +5,9 @@ Zero coupon bond implementation
 from datetime import datetime
 from typing import List, Optional
 
-from bond_library.core.bond import Bond
-from bond_library.core.cash_flow import CashFlow
-from bond_library.core.date_utils import DateUtils
+from core.bond import Bond
+from core.cash_flow import CashFlow
+from core.date_utils import DateUtils
 
 class ZeroCouponBond(Bond):
     """Zero coupon bond implementation"""

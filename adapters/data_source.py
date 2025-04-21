@@ -11,12 +11,12 @@ from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional, Union
 import os
 
-from bond_library.core.interest_rate import InterestRateCurve
-from bond_library.instruments.fixed_rate import FixedRateBond
-from bond_library.instruments.floating_rate import FloatingRateBond
-from bond_library.instruments.zero_coupon import ZeroCouponBond
-from bond_library.utils.logging import LogManager
-from bond_library.core.date_utils import DateUtils
+from core.interest_rate import InterestRateCurve
+from instruments.fixed_rate import FixedRateBond
+from instruments.floating_rate import FloatingRateBond
+from instruments.zero_coupon import ZeroCouponBond
+from utils.logging import LogManager
+from core.date_utils import DateUtils
 
 class DataSource(ABC):
     """Abstract base class for data sources"""

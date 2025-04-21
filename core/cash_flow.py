@@ -4,7 +4,7 @@ Cash flow models and calculations
 
 from datetime import datetime
 from typing import List, Dict, Optional
-from bond_library.core.interest_rate import InterestRateCurve
+from core.interest_rate import InterestRateCurve
 
 class CashFlow:
     """Base class for cash flows"""

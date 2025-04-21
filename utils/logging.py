@@ -5,7 +5,7 @@ Logging utilities
 import logging
 import sys
 from typing import Optional
-from bond_library.config import Config
+from config import Config
 
 class LogManager:
     """Logger setup and management"""
