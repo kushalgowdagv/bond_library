@@ -5,10 +5,10 @@ Floating rate bond implementation
 from datetime import datetime
 from typing import List, Optional, Dict, Any
 
-from ..core.bond import Bond
-from ..core.cash_flow import CashFlow
-from ..core.date_utils import DateUtils
-from ..core.interest_rate import InterestRateCurve
+from bond_library.core.bond import Bond
+from bond_library.core.cash_flow import CashFlow
+from bond_library.core.date_utils import DateUtils
+from bond_library.core.interest_rate import InterestRateCurve
 
 class FloatingRateBond(Bond):
     """Floating rate bond implementation"""

@@ -273,8 +273,8 @@ import pandas as pd
 from datetime import datetime
 
 # Import adapters
-from bond_library.adapters.data_source import CSVDataSource
-from bond_library.adapters.output import CSVOutputAdapter
+from adapters.data_source import CSVDataSource
+from adapters.output import CSVOutputAdapter
 
 # Import core components
 from bond_library.core.date_utils import DateUtils

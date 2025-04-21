@@ -6,9 +6,9 @@ import numpy as np
 from typing import List, Dict, Union, Tuple, Optional, Callable
 from datetime import datetime
 
-from ..core.bond import Bond
-from ..core.interest_rate import InterestRateCurve
-from ..utils.logging import LogManager
+from bond_library.core.bond import Bond
+from bond_library.core.interest_rate import InterestRateCurve
+from bond_library.utils.logging import LogManager
 
 class StressTest:
     """Class for stress testing bonds under various scenarios"""

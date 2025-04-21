@@ -7,10 +7,10 @@ from datetime import datetime
 import math
 from typing import List, Dict, Optional, Union, Tuple
 
-from ..core.date_utils import DateUtils
-from ..core.cash_flow import CashFlow
-from ..core.interest_rate import InterestRateCurve
-from ..utils.math import RootFinder
+from bond_library.core.date_utils import DateUtils
+from bond_library.core.cash_flow import CashFlow
+from bond_library.core.interest_rate import InterestRateCurve
+from bond_library.utils.math import RootFinder
 
 class Bond(ABC):
     """Abstract base class for bonds"""

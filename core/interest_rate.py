@@ -6,7 +6,7 @@ import pandas as pd
 import math
 from datetime import datetime
 from typing import List, Dict, Optional, Union
-from ..core.date_utils import DateUtils
+from bond_library.core.date_utils import DateUtils
 
 class InterestRateCurve:
     """Class representing an interest rate curve with interpolation capabilities"""
