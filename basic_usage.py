@@ -44,8 +44,17 @@ def main():
     data_source = CSVDataSource(data_dir)
     output_adapter = CSVOutputAdapter(output_dir)
     
+    # Load configuration
+    # Load yield curve
+    logger.info("Loading yield curve from CSV")
+    yield_curve = data_source.load_yield_curve("interest_rates.csv")
+
+    # Use the yield curve date as valuation date
+    valuation_date = yield_curve.curve_date
+    logger.info(f"Using yield curve date as valuation date: {valuation_date.strftime('%Y-%m-%d')}")
     # Set current date for valuation
-    valuation_date = datetime.now()
+    # valuation_date = datetime.now()
+
     logger.info(f"Valuation date: {valuation_date.strftime('%Y-%m-%d')}")
     
     try:
@@ -67,7 +76,7 @@ def main():
         logger.info(f"Loaded {len(bonds)} bonds")
         
         # Process first 5 bonds as a sample
-        sample_size = min(1, len(bonds))
+        sample_size = min(5, len(bonds))
         logger.info(f"Processing first {sample_size} bonds for analysis")
         
         # Prepare dictionary for portfolio analysis
