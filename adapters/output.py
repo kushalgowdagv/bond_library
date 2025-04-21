@@ -145,9 +145,9 @@ from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Optional, Union
 from datetime import datetime
 
-from ..core.bond import Bond
-from ..utils.logging import LogManager
-from ..risk.metrics import RiskMetrics
+from bond_library.core.bond import Bond
+from bond_library.utils.logging import LogManager
+from bond_library.risk.metrics import RiskMetrics
 
 class OutputAdapter(ABC):
     """Abstract base class for output adapters"""
@@ -423,3 +423,4 @@ class CSVOutputAdapter(OutputAdapter):
         except Exception as e:
             self.logger.error(f"Failed to export cash flows to {output_path}: {e}")
             raise
+        

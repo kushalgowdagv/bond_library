@@ -273,20 +273,20 @@ import pandas as pd
 from datetime import datetime
 
 # Import adapters
-from adapters.data_source import CSVDataSource
-from adapters.output import CSVOutputAdapter
+from bond_library.adapters.data_source import CSVDataSource
+from bond_library.adapters.output import CSVOutputAdapter
 
 # Import core components
-from core.date_utils import DateUtils
-from core.interest_rate import InterestRateCurve
+from bond_library.core.date_utils import DateUtils
+from bond_library.core.interest_rate import InterestRateCurve
 
 # Import risk modules
-from risk.metrics import RiskMetrics
-from risk.stress_test import StressTest
+from bond_library.risk.metrics import RiskMetrics
+from bond_library.risk.stress_test import StressTest
 
 # Import utilities
-from utils.logging import LogManager
-from utils.config import Config
+from bond_library.utils.logging import LogManager
+from bond_library.utils.config import Config
 
 def main():
     """Main function demonstrating basic usage"""
